@@ -1,5 +1,7 @@
 const router = require('express').Router();
+require('../../app/models')();
 
+const { db } = global;
 module.exports = (app) => {
   app.use('/api/posts', router);
 
@@ -9,8 +11,19 @@ module.exports = (app) => {
     });
 
   router.route('/recent')
-    .get((req, res) => {
-      res.json({ records: [] });
+    .get(async (req, res) => {
+      const posts = await db.Post.findAll({
+        include: [{
+          model: db.User,
+          attributes: ['username'],
+        }],
+        order: [
+          ['created_at', 'DESC'],
+        ],
+      }).map(({ id, content, User }) => ({
+        id, content, username: User.username,
+      }));
+
+      res.json({ records: [...posts] });
     });
 };
-
