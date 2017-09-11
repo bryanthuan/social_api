@@ -7,14 +7,14 @@ module.exports = {
     dialect: 'postgresql',
   },
   test: {
-    username: 'anhnguyen',
+    username: 'thuan',
     password: null,
     database: 'mysquar_nodejs_test',
     host: 'localhost',
     dialect: 'postgresql',
   },
   production: {
-    username: 'anhnguyen',
+    username: 'thuan',
     password: null,
     database: 'mysquar_nodejs_prod',
     host: 'localhost',

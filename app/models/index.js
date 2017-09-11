@@ -1,4 +1,4 @@
-module.exports = function () {
+module.exports = () => {
   const env = process.env.NODE_ENV || 'development';
 
   const glob = require('glob');

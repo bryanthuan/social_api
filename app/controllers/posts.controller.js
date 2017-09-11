@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-module.exports = function (app) {
+module.exports = (app) => {
   app.use('/api/posts', router);
 
   router.route('/hot')
