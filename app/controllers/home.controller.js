@@ -1,10 +1,9 @@
-var router = require('express').Router()
+const router = require('express').Router();
 
 module.exports = function (app) {
-  app.use('/api', router)
+  app.use('/api', router);
 
-  router.get('/', function (req, res) {
-    res.json({ message: 'hooray! welcome to our api!' })
-  })
-
-}
+  router.get('/', (req, res) => {
+    res.json({ message: 'hooray! welcome to our api!' });
+  });
+};

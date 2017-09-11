@@ -13,6 +13,7 @@ test/test.js
 dumps
 tools/*.json
 *.log
-
+.vscode/
 seeds/*
 instance.json
+package-lock.json

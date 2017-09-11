@@ -1,24 +1,22 @@
-var express = require('express')
-var bodyParser = require('body-parser')
-var glob = require('glob')
+const express = require('express');
+const bodyParser = require('body-parser');
+const glob = require('glob');
 
-var app = express()
+const app = express();
 
 // middleware
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // import models
-require('./app/models')()
+require('./app/models')();
 
 // import controllers
-var controllers = glob.sync(__dirname + '/app/controllers/**/*.js')
-controllers.forEach(function (controller) {
-  return require(controller)(app)
-})
+const controllers = glob.sync(`${__dirname}/app/controllers/**/*.js`);
+controllers.forEach(controller => require(controller)(app));
 
 // start the magic
-var port = process.env.PORT || 3000
-app.listen(port)
+const port = process.env.PORT || 3000;
+app.listen(port);
 
-console.log('Magic happens on port ' + port + ' (' + process.env.NODE_ENV + ')')
+console.log(`Magic happens on port ${port} (${process.env.NODE_ENV})`);
