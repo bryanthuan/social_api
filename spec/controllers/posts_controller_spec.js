@@ -84,8 +84,8 @@ describe('GET /api/posts/*', () => {
   describe('/api/posts/hot', () => {
     const endpoint = `${BASE_URL}/posts/hot`;
 
-    beforeEach((done) => {
-      db
+    beforeEach(async (done) => {
+      await db
         .Like
         .bulkCreate([
           {
@@ -149,10 +149,8 @@ describe('GET /api/posts/*', () => {
             user_id: user.id,
             created_at: utils.minutesAdd(post3CreatedAt, 55),
           },
-        ])
-        .then(() => {
-          done();
-        });
+        ]);
+      done();
     });
 
     it('returns records in recency order', (done) => {
