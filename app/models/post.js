@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate(models) {
         models.Post.belongsTo(models.User, { foreignKey: 'user_id' });
-        // models.Post.hasMany(models.Like);
+        models.Post.hasMany(models.Like);
       },
     },
   });

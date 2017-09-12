@@ -2,15 +2,15 @@
 
 module.exports = {
   up(queryInterface, Sequelize) {
-    return queryInterface.createTable('posts', {
+    return queryInterface.createTable('likes', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      content: {
-        type: Sequelize.STRING,
+      post_id: {
+        type: Sequelize.INTEGER,
       },
       user_id: {
         type: Sequelize.INTEGER,
@@ -26,6 +26,6 @@ module.exports = {
     });
   },
   down(queryInterface, Sequelize) {
-    return queryInterface.dropTable('posts');
+    return queryInterface.dropTable('likes');
   },
 };
