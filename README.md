@@ -1,4 +1,4 @@
-# MySQUAR Coding Challenge
+# An complelete rest api and Jasmine testing case with SequelizeJS - PostgreSQL
 
 ## Installing
 1. You should have `PostgreSQL` installed on your machine
